@@ -5,7 +5,6 @@ import { AppContainer } from 'react-hot-loader';
 
 import { Presentation } from './presentation';
 
-
 const CustomErrorReporter = ({ error }: { error: Error }) => <Redbox error={error} />;
 
 ReactDOM.render(

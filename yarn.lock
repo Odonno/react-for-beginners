@@ -769,12 +769,13 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/spectacle@^5.2.3":
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/@types/spectacle/-/spectacle-5.2.3.tgz#d09c439402ca1483a81ffda9aa37cd90d07e1cbe"
-  integrity sha512-9cIXgXHhoGFYa/T4RgDtkIwiXvg/jF0Tg+9JUP8OwhFk/18rS7SfeGyQ1Pa5GRezSQIFrqtYQdpawnX8C0TkZA==
+"@types/spectacle@5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@types/spectacle/-/spectacle-5.2.0.tgz#f11f1fdff2be03325c92c0990de702dbf8d80214"
+  integrity sha512-8yiB5ei1VMnFptfsjdZGtgQ63cCvHOk0b592f3N79FrIG/0pQSXzbJWxRJH5IkzHvVrEJ/as9SNP9F+NeCO1xg==
   dependencies:
-    spectacle "*"
+    "@types/react" "*"
+    csstype "^2.2.0"
 
 "@types/webpack-env@^1.13.6":
   version "1.13.6"
@@ -7896,7 +7897,7 @@ spectacle-renderer@^0.0.3:
     puppeteer "^0.12.0"
     yargs "^9.0.1"
 
-spectacle@*, spectacle@^5.2.2:
+spectacle@^5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/spectacle/-/spectacle-5.2.2.tgz#b5e717c85db47fe5dd267ff6562b9463b24fc1bc"
   integrity sha512-7PiLUArqsXupPMHqSqXCB37OzVhN8IxBYNsH8qSJt+jPfpMo6oRG0cTKqjIdmn6WUGSvYeIZa2Q1zHSvinLeiw==

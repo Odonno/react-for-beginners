@@ -38,7 +38,7 @@
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/react-hot-loader": "^4.1.0",
-    "@types/spectacle": "^5.2.3",
+    "@types/spectacle": "5.2.0",
     "@types/webpack-env": "^1.13.6",
     "@webpack-cli/migrate": "^0.1.2",
     "babel-eslint": "^10.0.1",
