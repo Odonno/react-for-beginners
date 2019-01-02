@@ -36,6 +36,13 @@ const theme = createTheme(
   }
 );
 
+const firstLevelListItemStyle = {
+
+};
+const SecondLevelListItemStyle = {
+
+};
+
 export const Presentation = () => (
   <Deck
     transition={['zoom', 'slide']}
@@ -49,6 +56,28 @@ export const Presentation = () => (
       <Text margin="10px 0 0" textColor="tertiary">
         A Typescript introduction to web development with React
       </Text>
+    </Slide>
+
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        What you will learn
+      </Heading>
+      <List>
+        <ListItem margin="20px 0" textSize="40px">What is React?</ListItem>
+        <ListItem margin="20px 0" textSize="40px">DEMO #1 - Hello World!</ListItem>
+        <ListItem margin="20px 0" textSize="40px">
+          A deeper introduction
+          <List margin="0 100px">
+            <ListItem margin="10px 0" textSize="30px">jsx</ListItem>
+            <ListItem margin="10px 0" textSize="30px">Functional component</ListItem>
+            <ListItem margin="10px 0" textSize="30px">Functional vs class component</ListItem>
+            <ListItem margin="10px 0" textSize="30px">Stateful components</ListItem>
+            <ListItem margin="10px 0" textSize="30px">Component lifecycle</ListItem>
+            <ListItem margin="10px 0" textSize="30px">Event handling</ListItem>
+          </List>
+        </ListItem>
+        <ListItem margin="20px 0" textSize="40px">DEMO #2 - Todo List</ListItem>
+      </List>      
     </Slide>
 
     <Slide bgColor="secondary">
