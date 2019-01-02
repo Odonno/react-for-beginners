@@ -17,10 +17,9 @@ ReactDOM.render(
 
 if (module.hot) {
   module.hot.accept('./presentation', () => {
-    const NextPresentation = require('./presentation').default;
     ReactDOM.render(
       <AppContainer errorReporter={CustomErrorReporter}>
-        <NextPresentation />
+        <Presentation />
       </AppContainer>,
       document.getElementById('root')
     );

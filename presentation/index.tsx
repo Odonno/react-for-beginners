@@ -45,10 +45,10 @@ export const Presentation = () => (
     <Slide transition={['zoom']} bgColor="primary">
       <Heading size={1} fit caps lineHeight={1} textColor="secondary">
         React for beginners
-          </Heading>
-      <Text margin="10px 0 0" textColor="tertiary" fit bold>
+      </Heading>
+      <Text margin="10px 0 0" textColor="tertiary">
         A Typescript introduction to web development with React
-          </Text>
+      </Text>
     </Slide>
 
     <Slide bgColor="secondary">
@@ -58,31 +58,31 @@ export const Presentation = () => (
     <Slide transition={['fade']} bgColor="tertiary">
       <Heading size={6} textColor="primary" caps>
         Typography
-          </Heading>
+      </Heading>
       <Heading size={1} textColor="secondary">
         Heading 1
-          </Heading>
+      </Heading>
       <Heading size={2} textColor="secondary">
         Heading 2
-          </Heading>
+      </Heading>
       <Heading size={3} textColor="secondary">
         Heading 3
-          </Heading>
+      </Heading>
       <Heading size={4} textColor="secondary">
         Heading 4
-          </Heading>
+      </Heading>
       <Heading size={5} textColor="secondary">
         Heading 5
-          </Heading>
+      </Heading>
       <Text textColor="secondary">
         Standard text
-          </Text>
+      </Text>
     </Slide>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         Standard List
-          </Heading>
+      </Heading>
       <List>
         <ListItem>Item 1</ListItem>
         <ListItem>Item 2</ListItem>
