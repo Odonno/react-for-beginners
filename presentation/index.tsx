@@ -25,9 +25,9 @@ require('normalize.css');
 
 const theme = createTheme(
   {
-    primary: 'white',
-    secondary: '#1F2022',
-    tertiary: '#03A9FC',
+    primary: '#282c34',
+    secondary: '#61DAFB',
+    tertiary: 'white',
     quaternary: '#CECECE'
   },
   {
