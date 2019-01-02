@@ -17,6 +17,7 @@ import {
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
+  reactLogo: require('../assets/react-logo.png'),
   formidagon: require('../assets/formidable-logo.svg'),
   goodWork: require('../assets/good-work.gif')
 };
@@ -36,13 +37,6 @@ const theme = createTheme(
   }
 );
 
-const firstLevelListItemStyle = {
-
-};
-const SecondLevelListItemStyle = {
-
-};
-
 export const Presentation = () => (
   <Deck
     transition={['zoom', 'slide']}
@@ -50,10 +44,11 @@ export const Presentation = () => (
     theme={theme}
   >
     <Slide transition={['zoom']} bgColor="primary">
-      <Heading size={1} fit caps lineHeight={1} textColor="secondary">
+      <Image src={images.reactLogo} height={250} />
+      <Heading margin="60px 0 0" size={1} fit caps lineHeight={1} textColor="secondary">
         React for beginners
       </Heading>
-      <Text margin="10px 0 0" textColor="tertiary">
+      <Text margin="40px 0 0" textColor="tertiary">
         A Typescript introduction to web development with React
       </Text>
     </Slide>
