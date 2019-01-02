@@ -1,7 +1,5 @@
-// Import React
 import React from 'react';
 
-// Import Spectacle Core tags
 import {
   BlockQuote,
   Cite,
@@ -16,7 +14,6 @@ import {
   Text
 } from 'spectacle';
 
-// Import theme
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
@@ -24,7 +21,6 @@ const images = {
   goodWork: require('../assets/good-work.gif')
 };
 
-// Require CSS
 require('normalize.css');
 
 const theme = createTheme(
@@ -50,15 +46,17 @@ export default class Presentation extends React.Component {
       >
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
+            React for beginners
           </Heading>
           <Text margin="10px 0 0" textColor="tertiary" fit bold>
-            open the presentation/index.js file to get started
+            A Typescript introduction to web development with React
           </Text>
         </Slide>
+
         <Slide bgColor="secondary">
           <Image src={images.formidagon} width={800} />
         </Slide>
+
         <Slide transition={['fade']} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>
             Typography
@@ -82,6 +80,7 @@ export default class Presentation extends React.Component {
             Standard text
           </Text>
         </Slide>
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
           <Heading size={6} textColor="secondary" caps>
             Standard List
@@ -93,12 +92,14 @@ export default class Presentation extends React.Component {
             <ListItem>Item 4</ListItem>
           </List>
         </Slide>
+
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote>Example Quote</Quote>
             <Cite margin="10px 0 0 30px">Author</Cite>
           </BlockQuote>
         </Slide>
+
         <Slide>
           <Image src={images.goodWork} width={500} />
           <Notes>gifs work too</Notes>
