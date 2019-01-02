@@ -12,6 +12,9 @@ module.exports = {
     'react-hot-loader/patch',
     './index'
   ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -89,6 +92,10 @@ module.exports = {
         }
       }],
       include: path.join(__dirname, 'assets')
+    }, {
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      exclude: /node_modules/
     }]
   }
 };
