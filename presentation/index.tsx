@@ -87,7 +87,7 @@ export const Presentation = () => (
         <ListItem margin="20px 0" textSize="40px">Developed by Facebook since 2013</ListItem>
         <ListItem margin="20px 0" textSize="40px">Open Source</ListItem>
         <ListItem margin="20px 0" textSize="40px">
-          1 simple goal: 
+          1 simple goal:
           <Cite margin="20px 40px">A JavaScript library for building user interfaces</Cite>
         </ListItem>
       </List>
@@ -141,7 +141,7 @@ render(<HelloWorld name="world" />);`} noInline={true}>
         </div>
       </LiveProvider>
     </Slide>
-    
+
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         Functional vs class components
@@ -166,7 +166,7 @@ render(<HelloWorld name="world" />);`} noInline={true}>
         </div>
       </LiveProvider>
     </Slide>
-    
+
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         Stateful components
@@ -201,21 +201,21 @@ render(<HelloWorld name="world" />);`} noInline={true}>
         </div>
       </LiveProvider>
     </Slide>
-    
+
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         Component lifecycle
       </Heading>
       <Image margin="40px auto" src={images.reactLifecycle1} height={450} />
     </Slide>
-    
+
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         Component lifecycle
       </Heading>
       <Image margin="40px auto" src={images.reactLifecycle2} height={450} />
     </Slide>
-    
+
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         Event handling
@@ -250,12 +250,151 @@ render(<HelloWorld name="world" />);`} noInline={true}>
         </div>
       </LiveProvider>
     </Slide>
-    
+
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         DEMO #2 - Todo List
-      </Heading>
-      <Text>TODO</Text>
+      </Heading><LiveProvider style={{ margin: '40px 0' }} code={`class TodoList extends React.Component {
+  constructor() {
+    super();
+    this.state = { tasks: [] };
+    
+    this.addTask = (task) => {
+      this.setState({ tasks: tasks.concat(task) });
+    }
+  }
+
+  render() {
+    return (
+      <div>  
+        <Tasks tasks={this.state.tasks} />      
+        <AddTodoForm handleAddTask={this.addTask} /> 
+      </div>
+    );
+  }
+}`}>
+        <LiveEditor style={{ fontSize: 18 }} />
+      </LiveProvider>
+    </Slide>
+
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        DEMO #2 - Todo List
+      </Heading><LiveProvider style={{ margin: '40px 0' }} code={`const Tasks = ({ tasks }) => {
+  return (
+    <ul>
+      {tasks.map((task, index) => 
+        <li key={index}>{task.content}</li>
+      )}
+    </ul>
+  );
+}`}>
+        <LiveEditor style={{ fontSize: 18 }} />
+      </LiveProvider>
+    </Slide>
+
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        DEMO #2 - Todo List
+      </Heading><LiveProvider style={{ margin: '40px 0' }} code={`class AddTodoForm extends React.Component {
+  constructor() {
+    super();
+    this.state = { text: "" };
+    
+    this.handleChange = (e) => {
+      this.setState({ text: e.target.value });
+    }
+    this.handleSubmit = () => {
+      this.props.handleAddTask({ content: this.state.text });
+      this.setState({ text: "" });
+    }
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input 
+          type="text" 
+          value={this.state.text} 
+          onChange={this.handleChange} 
+          placeholder="Add a new task" 
+        />
+      </form>
+    );
+  }
+}`}>
+        <LiveEditor style={{ fontSize: 18 }} />
+      </LiveProvider>
+    </Slide>
+
+<Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+  <Heading size={6} textColor="secondary" caps>
+    DEMO #2 - Todo List
+  </Heading><LiveProvider style={{ margin: '40px 0' }} noInline={true} code={`const Tasks = ({ tasks }) => {
+  return (
+    <ul>
+      {tasks.map((task, index) => 
+        <li key={index}>{task.content}</li>
+      )}
+    </ul>
+  );
+}
+
+class AddTodoForm extends React.Component {
+  constructor() {
+    super();
+    this.state = { text: "" };
+
+    this.handleChange = (e) => {
+      this.setState({ text: e.target.value });
+    }
+    this.handleSubmit = () => {
+      this.props.handleAddTask({ content: this.state.text });
+      this.setState({ text: "" });
+    }
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input 
+          type="text" 
+          value={this.state.text} 
+          onChange={this.handleChange} 
+          placeholder="Add a new task" 
+        />
+      </form>
+    );
+  }
+}
+
+class TodoList extends React.Component {
+  constructor() {
+    super();
+    this.state = { tasks: [] };
+    
+    this.addTask = (task) => {
+      this.setState({ tasks: this.state.tasks.concat(task) });
+    }
+  }
+
+  render() {
+    return (
+      <div>  
+        <Tasks tasks={this.state.tasks} />      
+        <AddTodoForm handleAddTask={this.addTask} /> 
+      </div>
+    );
+  }
+}
+
+render(<TodoList />);`}>
+        
+        <div style={{ margin: '20px 0 0 0' }}>
+          <LiveError />
+          <LivePreview />
+        </div>
+      </LiveProvider>
     </Slide>
   </Deck>
 );
