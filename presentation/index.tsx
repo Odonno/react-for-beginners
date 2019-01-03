@@ -11,7 +11,9 @@ import {
   Notes,
   Quote,
   Slide,
-  Text
+  Text,
+  Code,
+  CodePane
 } from 'spectacle';
 
 const {
@@ -100,15 +102,33 @@ export const Presentation = () => (
       <Heading size={6} textColor="secondary" caps>
         DEMO #1 - Hello World!
       </Heading>
-      <div style={{ margin: '80px 0' }}>
-        <LiveProvider code="render(<div>Hello World!</div>)" noInline={true}>
-          <LiveEditor />
-          <div style={{ margin: '20px 0 0 0' }}>
-            <LiveError />
-            <LivePreview />
-          </div>
-        </LiveProvider>
-      </div>
+      <LiveProvider style={{ margin: '80px 0' }} code="render(<div>Hello World!</div>)" noInline={true}>
+        <LiveEditor />
+        <div style={{ margin: '20px 0 0 0' }}>
+          <LiveError />
+          <LivePreview />
+        </div>
+      </LiveProvider>
+    </Slide>
+
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps fit>
+        jsx - combining HTML and JS together
+      </Heading>
+      <LiveProvider style={{ margin: '40px 0' }} code={`const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);`}>
+        <LiveEditor />
+      </LiveProvider>
+      <LiveProvider style={{ margin: '40px 0' }} code={`const element = React.createElement(
+  'h1',
+  { className: 'greeting' },
+  'Hello, world!'
+);`}>
+        <LiveEditor />
+      </LiveProvider>
     </Slide>
 
     <Slide bgColor="secondary">
