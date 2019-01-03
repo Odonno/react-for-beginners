@@ -68,8 +68,8 @@ export const Presentation = () => (
           A deeper introduction
           <List margin="0 100px">
             <ListItem margin="10px 0" textSize="30px">jsx</ListItem>
-            <ListItem margin="10px 0" textSize="30px">Functional component</ListItem>
-            <ListItem margin="10px 0" textSize="30px">Functional vs class component</ListItem>
+            <ListItem margin="10px 0" textSize="30px">Functional components</ListItem>
+            <ListItem margin="10px 0" textSize="30px">Functional vs class components</ListItem>
             <ListItem margin="10px 0" textSize="30px">Stateful components</ListItem>
             <ListItem margin="10px 0" textSize="30px">Component lifecycle</ListItem>
             <ListItem margin="10px 0" textSize="30px">Event handling</ListItem>
@@ -128,7 +128,7 @@ export const Presentation = () => (
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        Functional component
+        Functional components
       </Heading>
       <LiveProvider style={{ margin: '80px 0' }} code={`const HelloWorld = 
   (props) => <div>Hi {props.name}!</div>;
@@ -144,7 +144,7 @@ render(<HelloWorld name="world" />);`} noInline={true}>
     
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        Functional vs class component
+        Functional vs class components
       </Heading>
       <LiveProvider style={{ margin: '40px 0' }} code={`const HelloWorld = 
   (props) => <div>Hi {props.name}!</div>;`}>
@@ -171,7 +171,35 @@ render(<HelloWorld name="world" />);`} noInline={true}>
       <Heading size={6} textColor="secondary" caps>
         Stateful components
       </Heading>
-      <Text>TODO</Text>
+      <LiveProvider style={{ margin: '40px 0' }} code={`class Counter extends React.Component {
+  constructor() {
+    super();
+    this.state = { count: 0 };
+    
+    this.increment = () => {
+      this.setState({ count: this.state.count + 1 });
+    }    
+    this.decrement = () => {
+      this.setState({ count: this.state.count - 1 });
+    }
+  }
+
+  render() {
+    return (
+      <center>  
+        <button onClick={this.decrement}>-1</button>      
+        <span style={{ fontWeigth: 'bold', margin: 20 }}>{this.state.count}</span>       
+        <button onClick={this.increment}>+1</button> 
+      </center>
+    );
+  }
+}`}>
+        <LiveEditor style={{ fontSize: 18 }} />
+        <div style={{ margin: '20px 0 0 0' }}>
+          <LiveError />
+          <LivePreview />
+        </div>
+      </LiveProvider>
     </Slide>
     
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
