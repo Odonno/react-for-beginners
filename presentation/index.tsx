@@ -11,17 +11,21 @@ import {
   Notes,
   Quote,
   Slide,
-  Text,
-  Code,
-  CodePane
+  Text
 } from 'spectacle';
 
-const {
+import {
   LiveProvider,
   LiveEditor,
   LiveError,
   LivePreview
-} = require('react-live');
+} from 'react-live';
+// const {
+//   LiveProvider,
+//   LiveEditor,
+//   LiveError,
+//   LivePreview
+// } = require('react-live');
 
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -102,7 +106,7 @@ export const Presentation = () => (
       <Heading size={6} textColor="secondary" caps>
         DEMO #1 - Hello World!
       </Heading>
-      <LiveProvider style={{ margin: '80px 0' }} code="render(<div>Hello World!</div>)" noInline={true}>
+      <LiveProvider style={{ margin: '80px 0' }} code="render(<div>Hello World!</div>);" noInline={true}>
         <LiveEditor />
         <div style={{ margin: '20px 0 0 0' }}>
           <LiveError />
@@ -128,6 +132,22 @@ export const Presentation = () => (
   'Hello, world!'
 );`}>
         <LiveEditor />
+      </LiveProvider>
+    </Slide>
+
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps fit>
+        Functional component
+      </Heading>
+      <LiveProvider style={{ margin: '80px 0' }} code={`const HelloWorld = 
+  (props) => <div>Hi {props.name}!</div>;
+  
+render(<HelloWorld name="world" />);`} noInline={true}>
+        <LiveEditor />
+        <div style={{ margin: '20px 0 0 0' }}>
+          <LiveError />
+          <LivePreview />
+        </div>
       </LiveProvider>
     </Slide>
 
