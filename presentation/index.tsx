@@ -220,7 +220,35 @@ render(<HelloWorld name="world" />);`} noInline={true}>
       <Heading size={6} textColor="secondary" caps>
         Event handling
       </Heading>
-      <Text>TODO</Text>
+      <LiveProvider style={{ margin: '40px 0' }} code={`class Counter extends React.Component {
+  constructor() {
+    super();
+    this.state = { count: 0 };
+    
+    this.increment = (e) => {
+      this.setState({ count: this.state.count + 1 });
+    }    
+    this.decrement = (e) => {
+      this.setState({ count: this.state.count - 1 });
+    }
+  }
+
+  render() {
+    return (
+      <center>  
+        <button onClick={this.decrement}>-1</button>      
+        <span style={{ fontWeight: 'bold', margin: 20 }}>{this.state.count}</span>       
+        <button onClick={this.increment}>+1</button> 
+      </center>
+    );
+  }
+}`}>
+        <LiveEditor style={{ fontSize: 18 }} />
+        <div style={{ margin: '20px 0 0 0' }}>
+          <LiveError />
+          <LivePreview />
+        </div>
+      </LiveProvider>
     </Slide>
     
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
