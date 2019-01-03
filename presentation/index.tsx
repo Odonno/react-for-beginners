@@ -127,7 +127,7 @@ export const Presentation = () => (
     </Slide>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-      <Heading size={6} textColor="secondary" caps fit>
+      <Heading size={6} textColor="secondary" caps>
         Functional component
       </Heading>
       <LiveProvider style={{ margin: '80px 0' }} code={`const HelloWorld = 
@@ -146,7 +146,25 @@ render(<HelloWorld name="world" />);`} noInline={true}>
       <Heading size={6} textColor="secondary" caps>
         Functional vs class component
       </Heading>
-      <Text>TODO</Text>
+      <LiveProvider style={{ margin: '40px 0' }} code={`const HelloWorld = 
+  (props) => <div>Hi {props.name}!</div>;`}>
+        <LiveEditor />
+      </LiveProvider>
+      <LiveProvider style={{ margin: '40px 0' }} noInline={true} code={`class HelloWorld extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return <div>Hello {this.props.name}!</div>;
+  }
+}`}>
+        <LiveEditor />
+        <div style={{ margin: '20px 0 0 0' }}>
+          <LiveError />
+          <LivePreview />
+        </div>
+      </LiveProvider>
     </Slide>
     
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
