@@ -389,7 +389,6 @@ class TodoList extends React.Component {
 }
 
 render(<TodoList />);`}>
-        
         <div style={{ margin: '20px 0 0 0' }}>
           <LiveError />
           <LivePreview />
