@@ -22,8 +22,8 @@ import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
   reactLogo: require('../assets/react-logo.png'),
-  formidagon: require('../assets/formidable-logo.svg'),
-  goodWork: require('../assets/good-work.gif')
+  reactLifecycle1: require('../assets/react-lifecycle-1.png'),
+  reactLifecycle2: require('../assets/react-lifecycle-2.png')
 };
 
 require('normalize.css');
@@ -188,7 +188,7 @@ render(<HelloWorld name="world" />);`} noInline={true}>
     return (
       <center>  
         <button onClick={this.decrement}>-1</button>      
-        <span style={{ fontWeigth: 'bold', margin: 20 }}>{this.state.count}</span>       
+        <span style={{ fontWeight: 'bold', margin: 20 }}>{this.state.count}</span>       
         <button onClick={this.increment}>+1</button> 
       </center>
     );
@@ -206,7 +206,14 @@ render(<HelloWorld name="world" />);`} noInline={true}>
       <Heading size={6} textColor="secondary" caps>
         Component lifecycle
       </Heading>
-      <Text>TODO</Text>
+      <Image margin="40px auto" src={images.reactLifecycle1} height={450} />
+    </Slide>
+    
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        Component lifecycle
+      </Heading>
+      <Image margin="40px auto" src={images.reactLifecycle2} height={450} />
     </Slide>
     
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
