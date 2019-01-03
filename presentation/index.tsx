@@ -1,15 +1,12 @@
 import * as React from 'react';
 
 import {
-  BlockQuote,
   Cite,
   Deck,
   Heading,
   Image,
   List,
   ListItem,
-  Notes,
-  Quote,
   Slide,
   Text
 } from 'spectacle';
@@ -20,12 +17,6 @@ import {
   LiveError,
   LivePreview
 } from 'react-live';
-// const {
-//   LiveProvider,
-//   LiveEditor,
-//   LiveError,
-//   LivePreview
-// } = require('react-live');
 
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -141,7 +132,7 @@ export const Presentation = () => (
       </Heading>
       <LiveProvider style={{ margin: '80px 0' }} code={`const HelloWorld = 
   (props) => <div>Hi {props.name}!</div>;
-  
+
 render(<HelloWorld name="world" />);`} noInline={true}>
         <LiveEditor />
         <div style={{ margin: '20px 0 0 0' }}>
@@ -150,57 +141,40 @@ render(<HelloWorld name="world" />);`} noInline={true}>
         </div>
       </LiveProvider>
     </Slide>
-
-    <Slide bgColor="secondary">
-      <Image src={images.formidagon} width={800} />
-    </Slide>
-
-    <Slide transition={['fade']} bgColor="tertiary">
-      <Heading size={6} textColor="primary" caps>
-        Typography
-      </Heading>
-      <Heading size={1} textColor="secondary">
-        Heading 1
-      </Heading>
-      <Heading size={2} textColor="secondary">
-        Heading 2
-      </Heading>
-      <Heading size={3} textColor="secondary">
-        Heading 3
-      </Heading>
-      <Heading size={4} textColor="secondary">
-        Heading 4
-      </Heading>
-      <Heading size={5} textColor="secondary">
-        Heading 5
-      </Heading>
-      <Text textColor="secondary">
-        Standard text
-      </Text>
-    </Slide>
-
+    
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        Standard List
+        Functional vs class component
       </Heading>
-      <List>
-        <ListItem>Item 1</ListItem>
-        <ListItem>Item 2</ListItem>
-        <ListItem>Item 3</ListItem>
-        <ListItem>Item 4</ListItem>
-      </List>
+      <Text>TODO</Text>
     </Slide>
-
-    <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-      <BlockQuote>
-        <Quote>Example Quote</Quote>
-        <Cite margin="10px 0 0 30px">Author</Cite>
-      </BlockQuote>
+    
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        Stateful components
+      </Heading>
+      <Text>TODO</Text>
     </Slide>
-
-    <Slide>
-      <Image src={images.goodWork} width={500} />
-      <Notes>gifs work too</Notes>
+    
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        Component lifecycle
+      </Heading>
+      <Text>TODO</Text>
+    </Slide>
+    
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        Event handling
+      </Heading>
+      <Text>TODO</Text>
+    </Slide>
+    
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        DEMO #2 - Todo List
+      </Heading>
+      <Text>TODO</Text>
     </Slide>
   </Deck>
 );
