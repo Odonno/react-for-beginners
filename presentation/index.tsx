@@ -56,7 +56,7 @@ export const Presentation = () => (
         React for beginners
       </Heading>
       <Text margin="40px 0 0" textColor="tertiary">
-        A Typescript introduction to web development with React
+        An introduction to web development with React
       </Text>
     </Slide>
 
@@ -79,6 +79,20 @@ export const Presentation = () => (
           </List>
         </ListItem>
         <ListItem margin="20px 0" textSize="40px">DEMO #2 - Todo List</ListItem>
+      </List>
+    </Slide>
+
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        What is React?
+      </Heading>
+      <List>
+        <ListItem margin="20px 0" textSize="40px">Developed by Facebook since 2013</ListItem>
+        <ListItem margin="20px 0" textSize="40px">Open Source</ListItem>
+        <ListItem margin="20px 0" textSize="40px">
+          1 simple goal: 
+          <Cite margin="20px 40px">A JavaScript library for building user interfaces</Cite>
+        </ListItem>
       </List>
     </Slide>
 
