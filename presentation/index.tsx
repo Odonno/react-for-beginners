@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { withI18n } from "react-i18next";
 
 import {
   Cite,
@@ -41,7 +42,7 @@ const theme = createTheme(
   }
 );
 
-export const Presentation = () => (
+const Presentation = ({ t }) => (
   <Deck
     transition={['zoom', 'slide']}
     transitionDuration={500}
@@ -50,29 +51,29 @@ export const Presentation = () => (
     <Slide transition={['zoom']} bgColor="primary">
       <Image src={images.reactLogo} height={250} />
       <Heading margin="60px 0 0" size={1} fit caps lineHeight={1} textColor="secondary">
-        React for beginners
+        {t('React for beginners')}
       </Heading>
       <Text margin="40px 0 0" textColor="tertiary">
-        An introduction to web development with React
+        {t('An introduction to web development with React')}
       </Text>
     </Slide>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        What you will learn
+        {t('What you will learn')}
       </Heading>
       <List>
-        <ListItem margin="20px 0" textSize="40px">What is React?</ListItem>
+        <ListItem margin="20px 0" textSize="40px">{t('What is React?')}</ListItem>
         <ListItem margin="20px 0" textSize="40px">DEMO #1 - Hello World!</ListItem>
         <ListItem margin="20px 0" textSize="40px">
-          A deeper introduction
+          {t('A deeper introduction')}
           <List margin="0 100px">
             <ListItem margin="10px 0" textSize="30px">jsx</ListItem>
             <ListItem margin="10px 0" textSize="30px">Functional components</ListItem>
             <ListItem margin="10px 0" textSize="30px">Functional vs class components</ListItem>
             <ListItem margin="10px 0" textSize="30px">Stateful components</ListItem>
-            <ListItem margin="10px 0" textSize="30px">Component lifecycle</ListItem>
-            <ListItem margin="10px 0" textSize="30px">Event handling</ListItem>
+            <ListItem margin="10px 0" textSize="30px">{t('Component lifecycle')}</ListItem>
+            <ListItem margin="10px 0" textSize="30px">{t('Event handling')}</ListItem>
           </List>
         </ListItem>
         <ListItem margin="20px 0" textSize="40px">DEMO #2 - Todo List</ListItem>
@@ -81,13 +82,13 @@ export const Presentation = () => (
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        What is React?
+      {t('What is React?')}
       </Heading>
       <List>
-        <ListItem margin="20px 0" textSize="40px">Developed by Facebook since 2013</ListItem>
+        <ListItem margin="20px 0" textSize="40px">{t('Developed by Facebook since 2013')}</ListItem>
         <ListItem margin="20px 0" textSize="40px">Open Source</ListItem>
         <ListItem margin="20px 0" textSize="40px">
-          1 simple goal:
+          {t('1 simple goal')}
           <Cite margin="20px 40px">A JavaScript library for building user interfaces</Cite>
         </ListItem>
       </List>
@@ -108,7 +109,7 @@ export const Presentation = () => (
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps fit>
-        jsx - combining HTML and JS together
+        jsx - {t('combining HTML and JS together')}
       </Heading>
       <LiveProvider style={{ margin: '40px 0' }} code={`const element = (
   <h1 className="greeting">
@@ -204,21 +205,21 @@ render(<HelloWorld name="world" />);`} noInline={true}>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        Component lifecycle
+        {t('Component lifecycle')}
       </Heading>
       <Image margin="40px auto" src={images.reactLifecycle1} height={450} />
     </Slide>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        Component lifecycle
+        {t('Component lifecycle')}
       </Heading>
       <Image margin="40px auto" src={images.reactLifecycle2} height={450} />
     </Slide>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-        Event handling
+        {t('Event handling')}
       </Heading>
       <LiveProvider style={{ margin: '40px 0' }} code={`class Counter extends React.Component {
   constructor() {
@@ -397,3 +398,5 @@ render(<TodoList />);`}>
     </Slide>
   </Deck>
 );
+
+export const PresentationWithI18n = withI18n()(Presentation);
