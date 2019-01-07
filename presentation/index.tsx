@@ -82,7 +82,7 @@ const Presentation = ({ t }) => (
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
-      {t('What is React?')}
+        {t('What is React?')}
       </Heading>
       <List>
         <ListItem margin="20px 0" textSize="40px">{t('Developed by Facebook since 2013')}</ListItem>
@@ -211,8 +211,8 @@ render(<HelloWorld name="world" />);`} noInline={true}>
       <Text textSize="20px" textColor="tertiary">
         <span>* Source</span>
         <span> - </span>
-        <a 
-          href="https://www.codevoila.com/post/57/reactjs-tutorial-react-component-lifecycle" 
+        <a
+          href="https://www.codevoila.com/post/57/reactjs-tutorial-react-component-lifecycle"
           target="_blank"
           style={{ color: 'white' }}
         >
@@ -229,8 +229,8 @@ render(<HelloWorld name="world" />);`} noInline={true}>
       <Text textSize="20px" textColor="tertiary">
         <span>* Source</span>
         <span> - </span>
-        <a 
-          href="https://medium.com/@kartikagarwal01/react-component-lifecycle-old-vs-new-32757aee5850" 
+        <a
+          href="https://medium.com/@kartikagarwal01/react-component-lifecycle-old-vs-new-32757aee5850"
           target="_blank"
           style={{ color: 'white' }}
         >
@@ -277,7 +277,8 @@ render(<HelloWorld name="world" />);`} noInline={true}>
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         DEMO #2 - Todo List
-      </Heading><LiveProvider style={{ margin: '40px 0' }} code={`class TodoList extends React.Component {
+      </Heading>
+      <LiveProvider style={{ margin: '40px 0' }} code={`class TodoList extends React.Component {
   constructor() {
     super();
     this.state = { tasks: [] };
@@ -303,7 +304,8 @@ render(<HelloWorld name="world" />);`} noInline={true}>
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         DEMO #2 - Todo List
-      </Heading><LiveProvider style={{ margin: '40px 0' }} code={`const Tasks = ({ tasks }) => {
+      </Heading>
+      <LiveProvider style={{ margin: '40px 0' }} code={`const Tasks = ({ tasks }) => {
   return (
     <ul>
       {tasks.map((task, index) => 
@@ -319,7 +321,8 @@ render(<HelloWorld name="world" />);`} noInline={true}>
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
       <Heading size={6} textColor="secondary" caps>
         DEMO #2 - Todo List
-      </Heading><LiveProvider style={{ margin: '40px 0' }} code={`class AddTodoForm extends React.Component {
+      </Heading>
+      <LiveProvider style={{ margin: '40px 0' }} code={`class AddTodoForm extends React.Component {
   constructor() {
     super();
     this.state = { text: "" };
@@ -350,10 +353,11 @@ render(<HelloWorld name="world" />);`} noInline={true}>
       </LiveProvider>
     </Slide>
 
-<Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-  <Heading size={6} textColor="secondary" caps>
-    DEMO #2 - Todo List
-  </Heading><LiveProvider style={{ margin: '40px 0' }} noInline={true} code={`const Tasks = ({ tasks }) => {
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        DEMO #2 - Todo List
+      </Heading>
+      <LiveProvider style={{ margin: '40px 0' }} noInline={true} code={`const Tasks = ({ tasks }) => {
   return (
     <ul>
       {tasks.map((task, index) => 
@@ -417,6 +421,52 @@ render(<TodoList />);`}>
           <LivePreview />
         </div>
       </LiveProvider>
+    </Slide>
+
+    <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+      <Heading size={6} textColor="secondary" caps>
+        Getting started
+      </Heading>
+
+      <div
+        style={{ margin: '60px 0', display: 'grid', gridTemplateColumns: '1fr auto 1fr' }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <a
+            href="#"
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              textDecoration: 'none',
+              color: '#61DAFB',
+              fontSize: 22,
+              marginRight: 100,
+              lineHeight: 1.4
+            }}
+          >
+            Add react and react-dom dependencies in your app
+          </a>
+        </div>
+
+        <div style={{ borderLeft: '2px solid #F7F7F7', height: 300, margin: '0 20px' }}></div>
+
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <a
+            href="https://github.com/facebook/create-react-app"
+            target="_blank"
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              textDecoration: 'none',
+              color: '#61DAFB',
+              fontSize: 30,
+              marginLeft: 100
+            }}
+          >
+            create-react-app
+          </a>
+        </div>
+      </div>
     </Slide>
   </Deck>
 );
