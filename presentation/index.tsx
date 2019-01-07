@@ -208,6 +208,17 @@ render(<HelloWorld name="world" />);`} noInline={true}>
         {t('Component lifecycle')}
       </Heading>
       <Image margin="40px auto" src={images.reactLifecycle1} height={450} />
+      <Text textSize="20px" textColor="tertiary">
+        <span>* Source</span>
+        <span> - </span>
+        <a 
+          href="https://www.codevoila.com/post/57/reactjs-tutorial-react-component-lifecycle" 
+          target="_blank"
+          style={{ color: 'white' }}
+        >
+          https://www.codevoila.com/post/57/reactjs-tutorial-react-component-lifecycle
+        </a>
+      </Text>
     </Slide>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -215,6 +226,17 @@ render(<HelloWorld name="world" />);`} noInline={true}>
         {t('Component lifecycle')}
       </Heading>
       <Image margin="40px auto" src={images.reactLifecycle2} height={450} />
+      <Text textSize="20px" textColor="tertiary">
+        <span>* Source</span>
+        <span> - </span>
+        <a 
+          href="https://medium.com/@kartikagarwal01/react-component-lifecycle-old-vs-new-32757aee5850" 
+          target="_blank"
+          style={{ color: 'white' }}
+        >
+          https://medium.com/@kartikagarwal01/react-component-lifecycle-old-vs-new-32757aee5850
+        </a>
+      </Text>
     </Slide>
 
     <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
