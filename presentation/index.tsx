@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { PresentationWithI18n as BeginningPresentation } from './01-beginning';
+import { PresentationWithI18n as VirtualDomPresentation } from './02-virtual-dom';
 
 const presentations = [
     {
@@ -11,7 +12,8 @@ const presentations = [
     },
     {
         key: 'virtual-dom',
-        name: 'Virtual DOM'
+        name: 'Virtual DOM',
+        component: VirtualDomPresentation
     },
     {
         key: 'state-management-with-redux',

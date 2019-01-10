@@ -6,12 +6,29 @@ import i18n from "i18next";
 import * as LanguageDetector from 'i18next-browser-languagedetector';
 import { reactI18nextModule } from "react-i18next";
 
-import { resources } from './presentation/01-beginning';
+import { resources as resources01 } from './presentation/01-beginning';
+import { resources as resources02 } from './presentation/02-virtual-dom';
+
 import { Presentations } from './presentation';
 
 require('normalize.css');
 
 const CustomErrorReporter = ({ error }: { error: Error }) => <Redbox error={error} />;
+
+const resources = {
+  en: {
+    translation: {
+      ...resources01.en.translation,
+      ...resources02.en.translation
+    }
+  },
+  fr: {
+    translation: {
+      ...resources01.fr.translation,
+      ...resources02.fr.translation
+    }
+  }
+}
 
 i18n
   .use(LanguageDetector)
