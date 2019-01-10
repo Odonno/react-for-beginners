@@ -33,17 +33,17 @@ const presentations = [
     }
 ];
 
-const PresentationSelector = () => (
-    <div style={{ 
-            backgroundColor: '#282c34', 
-            height: '100vh',
-            display: 'flex',
-            justifyContent: 'center',
-            flexDirection: 'column'
-        }}
+const PresentationSelector = ({ handlePresentationChange }) => (
+    <div style={{
+        backgroundColor: '#282c34',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column'
+    }}
     >
-        <div 
-            style={{ 
+        <div
+            style={{
                 padding: '40px',
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)',
@@ -54,8 +54,9 @@ const PresentationSelector = () => (
             {presentations.map(p => {
                 const isAvailable = !!p.component;
                 return (
-                    <div 
+                    <div
                         key={p.name}
+                        onClick={() => handlePresentationChange(p)}
                         style={{
                             backgroundColor: 'white',
                             padding: '40px',
@@ -79,6 +80,31 @@ const PresentationSelector = () => (
     </div>
 );
 
-export const Presentations = () => (
-    <PresentationSelector />
-);
+export class Presentations extends React.Component<{}, any> {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentPresentation: null
+        };
+    }
+
+    handlePresentationChange = (presentation) => {
+        this.setState({
+            currentPresentation: presentation
+        });
+    };
+
+    render() {
+        if (this.state.currentPresentation && this.state.currentPresentation.component) {
+            const PresentationComponent = this.state.currentPresentation.component;
+            return <PresentationComponent />;
+        }
+
+        return (
+            <PresentationSelector
+                handlePresentationChange={this.handlePresentationChange}
+            />
+        );
+    }
+};
