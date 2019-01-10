@@ -22,7 +22,8 @@ import {
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
-    reactLogo: require('../../assets/react-logo.png')
+    reactLogo: require('../../assets/react-logo.png'),
+    dom: require('../../assets/dom.png'),
 };
 
 const theme = createTheme(
@@ -65,6 +66,73 @@ const Presentation = ({ t }) => (
                 <ListItem margin="20px 0" textSize="40px">diff & patch</ListItem>
             </List>
         </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('What is DOM?')}
+            </Heading>
+            <Image margin="40px auto" src={images.dom} height={450} />
+            <Text textSize="20px" textColor="tertiary">
+                <span>* Source</span>
+                <span> - </span>
+                <a
+                    href="http://cs.wellesley.edu/~cs110/reading/DOM-JQ.html"
+                    target="_blank"
+                    style={{ color: 'white' }}
+                >
+                    http://cs.wellesley.edu/~cs110/reading/DOM-JQ.html
+                </a>
+            </Text>
+        </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                DOM vs Virtual DOM
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                (Virtual) DOM nodes - {t('node creation')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                (Virtual) DOM nodes - {t('simple nodes')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                (Virtual) DOM nodes - {t('nodes with children')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                diff & patch - {t('the diff function')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                diff & patch - {t('the patch function')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+        
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                diff & patch - {t('updating the DOM')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
     </Deck>
 );
 
@@ -76,6 +144,13 @@ export const resources = {
             "Virtual DOM": "Virtual DOM",
             "How to create a dynamic web page": "How to create a dynamic web page?",
             "What you will learn": "What you will learn",
+            "What is DOM?": "What is DOM?",
+            "node creation": "node creation",
+            "simple nodes": "simple nodes",
+            "nodes with children": "nodes with children",
+            "the diff function": "the diff function",
+            "the patch function": "the patch function",
+            "updating the DOM": "updating the DOM"
         }
     },
     fr: {
@@ -83,6 +158,13 @@ export const resources = {
             "Virtual DOM": "Virtual DOM",
             "How to create a dynamic web page": "La création de pages web dynamiques",
             "What you will learn": "Objectif",
+            "What is DOM?": "C'est quoi le DOM ?",
+            "node creation": "la création d'un node",
+            "simple nodes": "un node simple",
+            "nodes with children": "nodes avec enfants",
+            "the diff function": "la fonction diff",
+            "the patch function": "la fonction patch",
+            "updating the DOM": "rafraîchir le DOM"
         }
     }
 };
