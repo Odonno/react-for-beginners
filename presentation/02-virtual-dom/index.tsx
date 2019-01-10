@@ -24,6 +24,7 @@ import createTheme from 'spectacle/lib/themes/default';
 const images = {
     reactLogo: require('../../assets/react-logo.png'),
     dom: require('../../assets/dom.png'),
+    virtualDom: require('../../assets/virtual-dom.png'),
 };
 
 const theme = createTheme(
@@ -66,7 +67,7 @@ const Presentation = ({ t }) => (
                 <ListItem margin="20px 0" textSize="40px">diff & patch</ListItem>
             </List>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 {t('What is DOM?')}
@@ -84,49 +85,87 @@ const Presentation = ({ t }) => (
                 </a>
             </Text>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 DOM vs Virtual DOM
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <Image margin="40px auto" src={images.virtualDom} height={450} />
+            <Text textSize="20px" textColor="tertiary">
+                <span>* Source</span>
+                <span> - </span>
+                <a
+                    href="https://mfrachet.github.io/create-frontend-framework/vdom/intro.html"
+                    target="_blank"
+                    style={{ color: 'white' }}
+                >
+                    https://mfrachet.github.io/create-frontend-framework/vdom/intro.html
+                </a>
+            </Text>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="secondary" caps fit>
                 (Virtual) DOM nodes - {t('node creation')}
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`function h(type, props, children) {
+    return { type, props, children };
+}`}>
+                <LiveEditor />
+            </LiveProvider>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="secondary" caps fit>
                 (Virtual) DOM nodes - {t('simple nodes')}
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`h(
+    'h1', // type
+    { className: 'heading-strong' } // props
+);`}>
+                <LiveEditor />
+            </LiveProvider>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`<h1 className="heading-strong" />`}>
+                <LiveEditor />
+            </LiveProvider>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="secondary" caps fit>
                 (Virtual) DOM nodes - {t('nodes with children')}
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`h(
+    'ul', // type
+    { className: 'list' }, // props
+    [ // children
+        h('li', {}, ['Task #1']),
+        h('li', {}, ['Task #2'])
+    ]
+);`}>
+                <LiveEditor />
+            </LiveProvider>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`<ul className="list">
+    <li>Task #1</li>
+    <li>Task #2</li>
+</ul>`}>
+                <LiveEditor />
+            </LiveProvider>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 diff & patch - {t('the diff function')}
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 diff & patch - {t('the patch function')}
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
-        
+
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 diff & patch - {t('updating the DOM')}
