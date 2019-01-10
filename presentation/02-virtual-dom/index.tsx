@@ -108,9 +108,8 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps fit>
                 (Virtual) DOM nodes - {t('node creation')}
             </Heading>
-            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`function h(type, props, children) {
-    return { type, props, children };
-}`}>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`h(type: string, props: {}, children: [])
+    -> VTree`}>
                 <LiveEditor />
             </LiveProvider>
         </Slide>
@@ -156,21 +155,30 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps>
                 diff & patch - {t('the diff function')}
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`diff(previous: VTree, current: VTree)
+    -> PatchObject`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 diff & patch - {t('the patch function')}
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`patch(root: DOMNode, patches: PatchObject)
+    -> DOMNode`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 diff & patch - {t('updating the DOM')}
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`h > diff > patch`}>
+                <LiveEditor readOnly={true} style={{ textAlign: 'center' }} />
+            </LiveProvider>
+            <Image margin="40px auto" src={images.virtualDom} height={450} />
         </Slide>
     </Deck>
 );
