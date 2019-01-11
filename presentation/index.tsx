@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { PresentationWithI18n as BeginningPresentation } from './01-beginning';
 import { PresentationWithI18n as VirtualDomPresentation } from './02-virtual-dom';
+import { PresentationWithI18n as ReduxPresentation } from './03-redux';
 
 const presentations = [
     {
@@ -17,7 +18,8 @@ const presentations = [
     },
     {
         key: 'state-management-with-redux',
-        name: 'State management with Redux'
+        name: 'State management with Redux',
+        component: ReduxPresentation
     },
     {
         key: 'routing',
