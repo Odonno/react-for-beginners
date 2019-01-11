@@ -23,6 +23,7 @@ import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
     reactLogo: require('../../assets/react-logo.png'),
+    reduxLogo: require('../../assets/redux-logo.png'),
 };
 
 const theme = createTheme(
@@ -30,7 +31,8 @@ const theme = createTheme(
         primary: '#282c34',
         secondary: '#61DAFB',
         tertiary: 'white',
-        quaternary: '#CECECE'
+        quaternary: '#CECECE',
+        quinary: '#764ABC'
     },
     {
         primary: 'Montserrat',
@@ -45,9 +47,15 @@ const Presentation = ({ t }) => (
         theme={theme}
     >
         <Slide transition={['zoom']} bgColor="primary">
-            <Image src={images.reactLogo} height={250} />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+                <Image src={images.reactLogo} height={250} />
+                <Image src={images.reduxLogo} height={250} />
+            </div>
+
             <Heading margin="60px 0 0" size={1} fit caps lineHeight={1} textColor="secondary">
-                {t('State management with Redux')}
+                {t('State management with')}
+                <span> </span>
+                <span style={{ color: '#764ABC' }}>Redux</span>
             </Heading>
             <Text margin="40px 0 0" textColor="tertiary">
                 {t('An architecture that scale')}
@@ -117,7 +125,7 @@ export const PresentationWithI18n = withI18n()(Presentation);
 export const resources = {
     en: {
         translation: {
-            "State management with Redux": "State management with Redux",
+            "State management with": "State management with",
             "An architecture that scale": "An architecture that scale",
             "What you will learn": "What you will learn",
             "What is Redux?": "What is Redux?",
@@ -126,7 +134,7 @@ export const resources = {
     },
     fr: {
         translation: {
-            "State management with Redux": "State management with Redux",
+            "State management with": "State management with",
             "An architecture that scale": "An architecture that scale",
             "What you will learn": "Objectif",
             "What is Redux?": "C'est quoi Redux ?",
