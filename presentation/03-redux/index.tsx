@@ -155,14 +155,14 @@ const Presentation = ({ t }) => (
             <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`const reducer = (state, action) => {
     switch (action.type) {
         case "INCREMENT":
-            return { count: state.count + 1 };
+            return { ...state, count: state.count + 1 };
         case "DECREMENT":
-            return { count: state.count - 1 };
+            return { ...state, count: state.count - 1 };
         default: 
             return state;
     }
 }`}>
-                <LiveEditor readOnly={true} />
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
             </LiveProvider>
         </Slide>
 
@@ -192,7 +192,29 @@ const Presentation = ({ t }) => (
                 <span> </span>
                 <span style={{ color: colors.secondary }}>components</span>
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const App = ({ count, increment }) => (
+    <div>
+        <button>Decrement</button>
+        {count}
+        <button onClick={increment}>Increment</button>
+    </div>
+);
+
+const mapStateToProps = state => {
+    return {
+        count: state.count
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        increment: () => dispatch({ type: 'INCREMENT' })
+    };
+};
+
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -207,6 +229,18 @@ const Presentation = ({ t }) => (
                 DEMO - Counter
             </Heading>
             <Text textColor="tertiary">TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="quinary" caps>
+                {t('What is Redux?')}
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`connect > dispatch > reduce > connect`}>
+                <LiveEditor readOnly={true} style={{ textAlign: 'center' }} />
+            </LiveProvider>
+            <LiveProvider style={{ margin: '40px 0' }} code={`dispatch(action) > reduce(state, action)`}>
+                <LiveEditor readOnly={true} style={{ textAlign: 'center', fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
     </Deck>
 );
