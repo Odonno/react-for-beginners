@@ -53,6 +53,62 @@ const Presentation = ({ t }) => (
                 {t('An architecture that scale')}
             </Text>
         </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('What you will learn')}
+            </Heading>
+            <List>
+                <ListItem margin="20px 0" textSize="40px">{t('What is Redux?')}</ListItem>
+                <ListItem margin="20px 0" textSize="40px">Global State</ListItem>
+                <ListItem margin="20px 0" textSize="40px">Actions</ListItem>
+                <ListItem margin="20px 0" textSize="40px">Reducers</ListItem>
+                <ListItem margin="20px 0" textSize="40px">{t('Connecting state to components')}</ListItem>
+                <ListItem margin="20px 0" textSize="40px">Dispatch actions</ListItem>
+            </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('What is Redux?')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                Global State
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                Actions
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                Reducers
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('Connecting state to components')}
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                Dispatch actions
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
     </Deck>
 );
 
@@ -62,13 +118,19 @@ export const resources = {
     en: {
         translation: {
             "State management with Redux": "State management with Redux",
-            "An architecture that scale": "An architecture that scale"
+            "An architecture that scale": "An architecture that scale",
+            "What you will learn": "What you will learn",
+            "What is Redux?": "What is Redux?",
+            "Connecting state to components": "Connecting state to components"
         }
     },
     fr: {
         translation: {
             "State management with Redux": "State management with Redux",
-            "An architecture that scale": "An architecture that scale"
+            "An architecture that scale": "An architecture that scale",
+            "What you will learn": "Objectif",
+            "What is Redux?": "C'est quoi Redux ?",
+            "Connecting state to components": "Connexion entre state & components"
         }
     }
 };
