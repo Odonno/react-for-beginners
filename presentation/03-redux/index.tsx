@@ -235,11 +235,20 @@ const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);`}>
             <Heading size={6} textColor="quinary" caps>
                 {t('What is Redux?')}
             </Heading>
-            <LiveProvider style={{ margin: '40px 0' }} code={`connect > dispatch > reduce > connect`}>
+            <LiveProvider style={{ margin: '40px 0' }} code={`connect |> dispatch |> reducer |> connect`}>
                 <LiveEditor readOnly={true} style={{ textAlign: 'center' }} />
             </LiveProvider>
-            <LiveProvider style={{ margin: '40px 0' }} code={`dispatch(action) > reduce(state, action)`}>
-                <LiveEditor readOnly={true} style={{ textAlign: 'center', fontSize: 26 }} />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="quinary" caps>
+                {t('What is Redux?')}
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`connect(state, dispatch)
+    |> dispatch(action)
+    |> reducer(state, action)
+    |> connect(newState, dispatch)`}>
+                <LiveEditor readOnly={true} />
             </LiveProvider>
         </Slide>
     </Deck>

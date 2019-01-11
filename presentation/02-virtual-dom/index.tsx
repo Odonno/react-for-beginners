@@ -177,7 +177,7 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps>
                 diff & patch - {t('updating the DOM')}
             </Heading>
-            <LiveProvider style={{ margin: '40px 0' }} code={`h > diff > patch`}>
+            <LiveProvider style={{ margin: '40px 0' }} code={`h |> diff |> patch`}>
                 <LiveEditor readOnly={true} style={{ textAlign: 'center' }} />
             </LiveProvider>
             <Image margin="40px auto" src={images.virtualDom} height={450} />
