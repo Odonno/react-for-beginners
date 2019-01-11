@@ -110,21 +110,60 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="quinary" caps>
                 Global State
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`{
+    users: [...],
+    orders: [...],
+    currentUser: {
+        id: '1234',
+        name: 'John Doe'
+    }
+}`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="quinary" caps>
                 Actions
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`const Increment = () => {
+    type: 'INCREMENT'
+}`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`const AddTask = (task) => {
+    type: 'ADD_TASK',
+    task
+}`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="quinary" caps>
                 Reducers
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`(state: State, action: Action) -> State`}>
+                <LiveEditor readOnly={true} style={{ textAlign: 'center' }} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="quinary" caps>
+                Reducers
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} readOnly={true} code={`const reducer = (state, action) => {
+    switch (action.type) {
+        case "INCREMENT":
+            return { count: state.count + 1 };
+        case "DECREMENT":
+            return { count: state.count - 1 };
+        default: 
+            return state;
+    }
+}`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -165,7 +204,7 @@ const Presentation = ({ t }) => (
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="quinary" caps>
-                DEMO - Todo List
+                DEMO - Counter
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
