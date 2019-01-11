@@ -219,16 +219,58 @@ const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);`}>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="quinary" caps>
-                Dispatch actions
+                DEMO - Counter
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '20px 0' }} code={`const App = ({ count, increment, decrement }) => (
+    <div>
+        <button onClick={decrement}>Decrement</button>
+        {count}
+        <button onClick={increment}>Increment</button>
+    </div>
+);
+
+const mapStateToProps = state => {
+    return {
+        count: state.count
+    };
+};
+const mapDispatchToProps = dispatch => {
+    return {
+        increment: () => dispatch({ type: 'INCREMENT' }),
+        decrement: () => dispatch({ type: 'DECREMENT' })
+    };
+};
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "INCREMENT":
+            return { ...state, count: state.count + 1 };
+        case "DECREMENT":
+            return { ...state, count: state.count - 1 };
+        default: 
+            return state;
+    }
+};
+
+const initialState = { count: 0 };
+const store = createStore(reducer, initialState);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 16 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="quinary" caps>
                 DEMO - Counter
             </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`render(
+  <Provider store={store}>
+    <ConnectedApp />
+  </Provider>,
+  document.getElementById('root')
+)`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
