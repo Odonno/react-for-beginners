@@ -27,13 +27,15 @@ const images = {
     virtualDom: require('../../assets/virtual-dom.png'),
 };
 
+const colors = {
+    primary: '#282c34',
+    secondary: '#61DAFB',
+    tertiary: 'white',
+    quaternary: '#CECECE'
+};
+
 const theme = createTheme(
-    {
-        primary: '#282c34',
-        secondary: '#61DAFB',
-        tertiary: 'white',
-        quaternary: '#CECECE'
-    },
+    colors,
     {
         primary: 'Montserrat',
         secondary: 'Helvetica'

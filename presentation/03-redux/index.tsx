@@ -9,7 +9,9 @@ import {
     List,
     ListItem,
     Slide,
-    Text
+    Text,
+    BlockQuote,
+    Quote
 } from 'spectacle';
 
 import {
@@ -24,16 +26,20 @@ import createTheme from 'spectacle/lib/themes/default';
 const images = {
     reactLogo: require('../../assets/react-logo.png'),
     reduxLogo: require('../../assets/redux-logo.png'),
+    reduxArchitecture: require('../../assets/redux-architecture.png'),
+    reduxVirtualDom: require('../../assets/redux-virtual-dom.png'),
+};
+
+const colors = {
+    primary: '#282c34',
+    secondary: '#61DAFB',
+    tertiary: 'white',
+    quaternary: '#CECECE',
+    quinary: '#764ABC'
 };
 
 const theme = createTheme(
-    {
-        primary: '#282c34',
-        secondary: '#61DAFB',
-        tertiary: 'white',
-        quaternary: '#CECECE',
-        quinary: '#764ABC'
-    },
+    colors,
     {
         primary: 'Montserrat',
         secondary: 'Helvetica'
@@ -77,43 +83,89 @@ const Presentation = ({ t }) => (
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
-                {t('What is Redux?')}
-            </Heading>
-            <Text textColor="tertiary">TODO</Text>
+            <BlockQuote>
+                <Quote textColor="quinary">A predictable state container for JavaScript apps</Quote>
+            </BlockQuote>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="quinary" caps>
+                {t('What is Redux?')}
+            </Heading>
+            <Image margin="40px auto" src={images.reduxArchitecture} height={450} />
+            <Text textSize="20px" textColor="tertiary">
+                <span>* Source</span>
+                <span> - </span>
+                <a
+                    href="https://hackernoon.com/lessons-learned-implementing-redux-on-android-cba1bed40c41"
+                    target="_blank"
+                    style={{ color: 'white' }}
+                >
+                    https://hackernoon.com/lessons-learned-implementing-redux-on-android-cba1bed40c41
+                </a>
+            </Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="quinary" caps>
                 Global State
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="quinary" caps>
                 Actions
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="quinary" caps>
                 Reducers
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
-                {t('Connecting state to components')}
+            <Heading size={6} textColor="quinary" caps fit>
+                {t('Connecting state to')}
+                <span> </span>
+                <span style={{ color: colors.secondary }}>components</span>
+            </Heading>
+            <Image margin="40px auto" src={images.reduxVirtualDom} height={450} />
+            <Text textSize="20px" textColor="tertiary">
+                <span>* Source</span>
+                <span> - </span>
+                <a
+                    href="https://www.smashingmagazine.com/2016/06/an-introduction-to-redux/"
+                    target="_blank"
+                    style={{ color: 'white' }}
+                >
+                    https://www.smashingmagazine.com/2016/06/an-introduction-to-redux/
+                </a>
+            </Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="quinary" caps fit>
+                {t('Connecting state to')}
+                <span> </span>
+                <span style={{ color: colors.secondary }}>components</span>
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="quinary" caps>
                 Dispatch actions
+            </Heading>
+            <Text textColor="tertiary">TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="quinary" caps>
+                DEMO - Todo List
             </Heading>
             <Text textColor="tertiary">TODO</Text>
         </Slide>
@@ -129,7 +181,7 @@ export const resources = {
             "An architecture that scale": "An architecture that scale",
             "What you will learn": "What you will learn",
             "What is Redux?": "What is Redux?",
-            "Connecting state to components": "Connecting state to components"
+            "Connecting state to": "Connecting state to"
         }
     },
     fr: {
@@ -138,7 +190,7 @@ export const resources = {
             "An architecture that scale": "An architecture that scale",
             "What you will learn": "Objectif",
             "What is Redux?": "C'est quoi Redux ?",
-            "Connecting state to components": "Connexion entre state & components"
+            "Connecting state to": "Connexion entre state &"
         }
     }
 };
