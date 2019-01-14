@@ -75,7 +75,17 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>if/else</span>
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const RouteComponent = (props) => {
+    if (props.loading) {
+        return <div>Currently loading...</div>;
+    }
+    if (!props.value) {
+        return null;
+    }
+    return <div>{props.value}</div>;
+}`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -84,7 +94,20 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>switch</span>
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const RouteComponent = (props) => {
+    switch (props.state) {
+        case 'Index':
+            return <Index />;
+        case 'About':
+            return <About />;
+        case 'Users':
+            return <Users />;
+        default:
+            return <div>No match...</div>;
+    }
+}`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -106,7 +129,7 @@ const Presentation = ({ t }) => (
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="secondary" caps fit>
                 <span>{t('React Router Components')}</span>
                 <span> - </span>
                 <span>(Nav)Link</span>
@@ -115,12 +138,12 @@ const Presentation = ({ t }) => (
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="secondary" caps fit>
                 <span>{t('React Router Components')}</span>
                 <span> - </span>
-                <span>initialize with BrowserRouter</span>
+                <span>{t('initialization')}</span>
             </Heading>
-            <Text>TODO</Text>
+            <Text>with BrowserRouter</Text>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -142,12 +165,12 @@ const Presentation = ({ t }) => (
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="secondary" caps fit>
                 <span>{t('Redux integration')}</span>
                 <span> - </span>
-                <span>initialize with ConnectedRouter</span>
+                <span>{t('initialization')}</span>
             </Heading>
-            <Text>TODO</Text>
+            <Text>with ConnectedRouter</Text>
         </Slide>
     </Deck>
 );
@@ -162,7 +185,8 @@ export const resources = {
             "What you will learn": "What you will learn",
             "Conditional rendering": "Conditional rendering",
             "React Router Components": "React Router Components",
-            "Redux integration": "Redux integration"
+            "Redux integration": "Redux integration",
+            "initialization": "initialization"
         }
     },
     fr: {
@@ -172,7 +196,8 @@ export const resources = {
             "What you will learn": "Objectif",
             "Conditional rendering": "Conditional rendering",
             "React Router Components": "React Router Components",
-            "Redux integration": "Redux integration"
+            "Redux integration": "Redux integration",
+            "initialization": "initialisation"
         }
     }
 };
