@@ -5,6 +5,7 @@ import { PresentationWithI18n as BeginningPresentation } from './01-beginning';
 import { PresentationWithI18n as VirtualDomPresentation } from './02-virtual-dom';
 import { PresentationWithI18n as ReduxPresentation } from './03-redux';
 import { PresentationWithI18n as RoutingPresentation } from './04-routing';
+import { PresentationWithI18n as RxjsReactPresentation } from './05-rxjs-react';
 
 const presentations = [
     {
@@ -29,7 +30,8 @@ const presentations = [
     },
     {
         key: 'rxjs-react',
-        name: 'rxjs + react'
+        name: 'rxjs + react',
+        component: RxjsReactPresentation
     },
     {
         key: 'react-and-web-api',
