@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { PresentationWithI18n as BeginningPresentation } from './01-beginning';
 import { PresentationWithI18n as VirtualDomPresentation } from './02-virtual-dom';
 import { PresentationWithI18n as ReduxPresentation } from './03-redux';
+import { PresentationWithI18n as RoutingPresentation } from './04-routing';
 
 const presentations = [
     {
@@ -23,7 +24,8 @@ const presentations = [
     },
     {
         key: 'routing',
-        name: 'Routing'
+        name: 'Routing',
+        component: RoutingPresentation
     },
     {
         key: 'rxjs-react',

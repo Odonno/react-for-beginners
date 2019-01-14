@@ -264,10 +264,10 @@ const store = createStore(reducer, initialState);`}>
                 DEMO - Counter
             </Heading>
             <LiveProvider style={{ margin: '40px 0' }} code={`render(
-  <Provider store={store}>
-    <ConnectedApp />
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <ConnectedApp />
+    </Provider>,
+    document.getElementById('root')
 )`}>
                 <LiveEditor readOnly={true} />
             </LiveProvider>
