@@ -207,7 +207,26 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>navigate to</span>
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const Component = (props) => (
+    <nav>
+        <ul>
+            <li>
+                <div onClick={() => props.push('/home')}>
+                    Home
+                </div>
+            </li>
+            <li>
+                <div onClick={() => props.push('/about')}>
+                    About
+                </div>
+            </li>
+        </ul>
+    </nav>
+);
+
+connect(null, { push })(Component);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -216,7 +235,15 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>go back</span>
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const OtherComponent = (props) => (
+    <div onClick={() => props.goBack()}>
+        Go back
+    </div>
+);
+
+connect(null, { goBack })(OtherComponent);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -225,7 +252,16 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>{t('initialization')}</span>
             </Heading>
-            <Text>with ConnectedRouter</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`ReactDOM.render(
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            <App />
+        </ConnectedRouter>
+    </Provider>,
+    document.getElementById('root')
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
     </Deck>
 );
