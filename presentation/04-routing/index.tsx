@@ -57,6 +57,98 @@ const Presentation = ({ t }) => (
                 {t('Handle web app navigation')}
             </Text>
         </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('What you will learn')}
+            </Heading>
+            <List>
+                <ListItem margin="20px 0" textSize="40px">{t('Conditional rendering')}</ListItem>
+                <ListItem margin="20px 0" textSize="40px">{t('React Router Components')}</ListItem>
+                <ListItem margin="20px 0" textSize="40px">{t('Redux integration')}</ListItem>
+            </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('Conditional rendering')}</span>
+                <span> - </span>
+                <span>if/else</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('Conditional rendering')}</span>
+                <span> - </span>
+                <span>switch</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('React Router Components')}</span>
+                <span> - </span>
+                <span>Router</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('React Router Components')}</span>
+                <span> - </span>
+                <span>Switch</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('React Router Components')}</span>
+                <span> - </span>
+                <span>(Nav)Link</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('React Router Components')}</span>
+                <span> - </span>
+                <span>initialize with BrowserRouter</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('Redux integration')}</span>
+                <span> - </span>
+                <span>navigate to</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('Redux integration')}</span>
+                <span> - </span>
+                <span>go back</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                <span>{t('Redux integration')}</span>
+                <span> - </span>
+                <span>initialize with ConnectedRouter</span>
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
     </Deck>
 );
 
@@ -66,13 +158,21 @@ export const resources = {
     en: {
         translation: {
             "Routing": "Routing",
-            "Handle web app navigation": "Handle web app navigation"
+            "Handle web app navigation": "Handle web app navigation",
+            "What you will learn": "What you will learn",
+            "Conditional rendering": "Conditional rendering",
+            "React Router Components": "React Router Components",
+            "Redux integration": "Redux integration"
         }
     },
     fr: {
         translation: {
             "Routing": "Routing",
-            "Handle web app navigation": "Gestion de la navigation"
+            "Handle web app navigation": "Gestion de la navigation",
+            "What you will learn": "Objectif",
+            "Conditional rendering": "Conditional rendering",
+            "React Router Components": "React Router Components",
+            "Redux integration": "Redux integration"
         }
     }
 };
