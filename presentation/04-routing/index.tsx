@@ -75,7 +75,7 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>if/else</span>
             </Heading>
-            <LiveProvider style={{ margin: '40px 0' }} code={`const RouteComponent = (props) => {
+            <LiveProvider style={{ margin: '40px 0' }} code={`const AppRouter = (props) => {
     if (props.loading) {
         return <div>Currently loading...</div>;
     }
@@ -94,7 +94,7 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>switch</span>
             </Heading>
-            <LiveProvider style={{ margin: '40px 0' }} code={`const RouteComponent = (props) => {
+            <LiveProvider style={{ margin: '40px 0' }} code={`const AppRouter = (props) => {
     switch (props.state) {
         case 'Index':
             return <Index />;
@@ -116,7 +116,19 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>Router</span>
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const AppRouter = () => (
+    <Router>
+        <div>
+            <NavBar />
+
+            <Route path="/" exact component={Index} />
+            <Route path="/about" component={About} />
+            <Route path="/users" component={Users} />
+        </div>
+    </Router>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -125,7 +137,22 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>Switch</span>
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const AppRouter = () => (
+    <Router>
+        <div>
+            <NavBar />
+
+            <Switch>
+                <Route path="/" exact component={Index} />
+                <Route path="/about" component={About} />
+                <Route path="/users" component={Users} />
+                <Route path="/:name" component={Other} />
+            </Switch>
+        </div>
+    </Router>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -134,7 +161,28 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>(Nav)Link</span>
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const NavBar = () => (
+    <nav>
+        <ul>
+            <li>
+                <Link to="/">Home</Link>
+            </li>
+            <li>
+                <Link to="/about">About</Link>
+            </li>
+            <li>
+                <NavLink 
+                    to="/users" 
+                    activeClassName="selected"
+                >
+                    Users
+                </Link>
+            </li>
+        </ul>
+    </nav>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -143,7 +191,14 @@ const Presentation = ({ t }) => (
                 <span> - </span>
                 <span>{t('initialization')}</span>
             </Heading>
-            <Text>with BrowserRouter</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root')
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
