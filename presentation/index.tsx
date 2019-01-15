@@ -6,6 +6,7 @@ import { PresentationWithI18n as VirtualDomPresentation } from './02-virtual-dom
 import { PresentationWithI18n as ReduxPresentation } from './03-redux';
 import { PresentationWithI18n as RoutingPresentation } from './04-routing';
 import { PresentationWithI18n as RxjsReactPresentation } from './05-rxjs-react';
+import { PresentationWithI18n as ReactAndWebApiPresentation } from './06-web-api';
 
 const presentations = [
     {
@@ -35,7 +36,8 @@ const presentations = [
     },
     {
         key: 'react-and-web-api',
-        name: 'React & web API'
+        name: 'React & web API',
+        component: ReactAndWebApiPresentation
     },
     {
         key: 'styling',

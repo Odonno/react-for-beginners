@@ -11,6 +11,7 @@ import { resources as resources02 } from './presentation/02-virtual-dom';
 import { resources as resources03 } from './presentation/03-redux';
 import { resources as resources04 } from './presentation/04-routing';
 import { resources as resources05 } from './presentation/05-rxjs-react';
+import { resources as resources06 } from './presentation/06-web-api';
 
 import { Presentations } from './presentation';
 
@@ -25,7 +26,8 @@ const resources = {
       ...resources02.en.translation,
       ...resources03.en.translation,
       ...resources04.en.translation,
-      ...resources05.en.translation
+      ...resources05.en.translation,
+      ...resources06.en.translation
     }
   },
   fr: {
@@ -34,7 +36,8 @@ const resources = {
       ...resources02.fr.translation,
       ...resources03.fr.translation,
       ...resources04.fr.translation,
-      ...resources05.fr.translation
+      ...resources05.fr.translation,
+      ...resources06.fr.translation
     }
   }
 }
