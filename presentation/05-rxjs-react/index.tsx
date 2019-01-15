@@ -97,14 +97,67 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps fit>
                 {t('Handling UI events')} - {t('Creating observables')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`class SearchComponent extends React.Component {
+    private search$: Subject<string>;
+
+    constructor(props) {
+        super(props);
+
+        this.search$ = new Subject();
+
+        this.state = {
+            results: []
+        };
+    }
+
+    componentDidMount() {
+        this.search$.pipe(
+            debounceTime(300),
+            distinctUntilChanged()
+        ).subscribe(search => {
+            if (!search) {
+                this.setState({ results: [] });
+            }
+            this.setState({
+                results: this.props.values.filter(value => value.includes(search))
+            });
+        });
+    }
+
+    componentWillUnmount() {
+        this.search$.unsubscribe();
+    }
+};`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps fit>
                 {t('Handling UI events')} - {t('Using observables')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`class SearchComponent extends React.Component {
+    private search$: Subject<string>;
+    
+    render() {
+        return (
+            <div>
+                <input 
+                    type="text"
+                    onChange={e => this.search$.next(e.target.value)}
+                />
+
+                <ul className="resultList">
+                    {this.state.results.map((result, index) =>
+                        <li key={index}>{result}</li>
+                    )}
+                </ul>
+            </div>
+        );
+    }
+};`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
