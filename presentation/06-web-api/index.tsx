@@ -128,7 +128,38 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps fit>
                 {t('Handling side effects with redux-observable')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const loadTasks = () => {
+    type: 'LOAD_TASKS'
+};
+
+const loadTasksFulfilled = (tasks) => {
+    type: 'LOAD_TASKS_FULFILLED',
+    tasks
+};
+
+const loadTasksFailed = (error) => {
+    type: 'LOAD_TASKS_FAILED',
+    error
+};`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Handling side effects with redux-observable')}
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const loadTasksEpic = (action$) => action$.pipe(
+    ofType('LOAD_TASKS'),
+    mergeMap(_ => 
+        ajax.getJSON('/api/tasks').pipe(
+            map(response => loadTasksFulfilled(response)),
+            catchError(error => of(loadTasksFailed(error))
+        )
+    )
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
     </Deck>
 );
