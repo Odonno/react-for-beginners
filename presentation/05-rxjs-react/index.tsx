@@ -26,7 +26,8 @@ import createTheme from 'spectacle/lib/themes/default';
 const images = {
     reactLogo: require('../../assets/react-logo.png'),
     rxLogo: require('../../assets/rx-logo.png'),
-    rxjsReactRelation: require('../../assets/rxjs-react-relation.png')
+    rxjsReactRelation: require('../../assets/rxjs-react-relation.png'),
+    reduxObservableLogo: require('../../assets/redux-observable-logo.gif')
 };
 
 const colors = {
@@ -128,7 +129,7 @@ const Presentation = ({ t }) => (
         this.search$.unsubscribe();
     }
 };`}>
-                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+                <LiveEditor readOnly={true} style={{ fontSize: 16 }} />
             </LiveProvider>
         </Slide>
 
@@ -160,18 +161,76 @@ const Presentation = ({ t }) => (
             </LiveProvider>
         </Slide>
 
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps fit>
-                {t('Combining Redux and rxjs')} - ReduxObservable
-            </Heading>
-            <Text>TODO</Text>
+        <Slide transition={['fade']} bgColor="tertiary" textColor="tertiary">
+            <Image src={images.reduxObservableLogo} />
+
+            <BlockQuote style={{ width: 1100, marginTop: 60 }}>
+                <Quote textColor="quinary">
+                    Compose and cancel async actions to create side effects and more.
+                </Quote>
+            </BlockQuote>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
-                {t('Combining Redux and rxjs')} - Epics
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Combining Redux and rxjs')} - Epic function
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`(
+    action$: Observable<Action>, 
+    state$: StateObservable<State>
+)
+    -> Observable<Action>`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Combining Redux and rxjs')} - A basic example
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const pingEpic = action$ => action$.pipe(
+    filter(action => action.type === 'PING'),
+    mapTo({ type: 'PONG' })
+);
+
+dispatch({ type: 'PING' });`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Combining Redux and rxjs')} - Side effects
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const pingEpic = action$ => action$.pipe(
+    ofType('PING'),
+    delay(1000), // wait 1s then continue
+    mapTo({ type: 'PONG' })
+);`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Combining Redux and rxjs')} - {t('initialization')}
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const epics = []; // all epic functions
+
+const configureStore = () => {
+    const epicMiddleware = createEpicMiddleware(
+        combineEpics(...epics)
+    );
+
+    const store = createStore(
+        reducers,
+        applyMiddleware(epicMiddleware)
+    );
+
+    return store;
+};`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -208,7 +267,8 @@ export const resources = {
             "Combining Redux and rxjs": "Combining Redux & rxjs",
             "Replacing Redux with rxjs": "Replacing Redux with rxjs",
             "Creating observables": "Creating observables",
-            "Using observables": "Using observables"
+            "Using observables": "Using observables",
+            "initialization": "initialization"
         }
     },
     fr: {
@@ -219,7 +279,8 @@ export const resources = {
             "Combining Redux and rxjs": "Combiner Redux & rxjs",
             "Replacing Redux with rxjs": "Remplacer Redux par rxjs",
             "Creating observables": "Création des observables",
-            "Using observables": "Utilisation des observables"
+            "Using observables": "Utilisation des observables",
+            "initialization": "initialisation"
         }
     }
 };
