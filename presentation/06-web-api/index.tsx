@@ -74,18 +74,58 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps>
                 {t('Fetching data with axios')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`class TodoList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            tasks: []
+        };
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:8000/api/tasks')
+            .then(res => {
+                this.setState({ tasks: res.data });
+            });
+    }
+
+    render() {
+        /* ... */
+    }
+}`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 {t('Executing HTTP requests')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`class TodoList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            tasks: []
+        };
+    }
+
+    handleAddTask = (content) => {
+        axios.post('http://localhost:8000/api/tasks/add', { content })
+            .then(res => {
+                this.setState({ 
+                    tasks: this.state.tasks.concat([res.data]) 
+                });
+            });
+    }
+}`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 20 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
+            <Heading size={6} textColor="secondary" caps fit>
                 {t('Handling side effects with redux-observable')}
             </Heading>
             <Text>TODO</Text>
