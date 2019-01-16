@@ -8,6 +8,7 @@ import { PresentationWithI18n as RoutingPresentation } from './04-routing';
 import { PresentationWithI18n as RxjsReactPresentation } from './05-rxjs-react';
 import { PresentationWithI18n as ReactAndWebApiPresentation } from './06-web-api';
 import { PresentationWithI18n as StylingPresentation } from './07-styling';
+import { PresentationWithI18n as StorybookPresentation } from './08-storybook';
 
 const presentations = [
     {
@@ -47,8 +48,9 @@ const presentations = [
         component: StylingPresentation
     },
     {
-        key: 'sharing-ui-libraries',
-        name: 'Sharing UI libraries (Storybook)'
+        key: 'sharing-ui-components',
+        name: 'Sharing UI components (Storybook)',
+        component: StorybookPresentation
     },
     {
         key: 'advanced-and-preview-features',

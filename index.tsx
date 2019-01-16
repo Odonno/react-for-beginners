@@ -13,6 +13,7 @@ import { resources as resources04 } from './presentation/04-routing';
 import { resources as resources05 } from './presentation/05-rxjs-react';
 import { resources as resources06 } from './presentation/06-web-api';
 import { resources as resources07 } from './presentation/07-styling';
+import { resources as resources08 } from './presentation/08-storybook';
 
 import { Presentations } from './presentation';
 
@@ -29,7 +30,8 @@ const resources = {
       ...resources04.en.translation,
       ...resources05.en.translation,
       ...resources06.en.translation,
-      ...resources07.en.translation
+      ...resources07.en.translation,
+      ...resources08.en.translation
     }
   },
   fr: {
@@ -40,7 +42,8 @@ const resources = {
       ...resources04.fr.translation,
       ...resources05.fr.translation,
       ...resources06.fr.translation,
-      ...resources07.fr.translation
+      ...resources07.fr.translation,
+      ...resources08.fr.translation
     }
   }
 }
