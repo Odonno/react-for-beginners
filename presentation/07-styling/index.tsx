@@ -57,6 +57,38 @@ const Presentation = ({ t }) => (
                 {t('Design beautiful applications in React')}
             </Text>
         </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('What you will learn')}
+            </Heading>
+            <List>
+                <ListItem margin="20px 0" textSize="40px">{t('Use CSS classes')}</ListItem>
+                <ListItem margin="20px 0" textSize="40px">{t('Apply inline styles')}</ListItem>
+                <ListItem margin="20px 0" textSize="40px">{t('Enhanced styling with Aphrodite')}</ListItem>
+            </List>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('Use CSS classes')}
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('Apply inline styles')}
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('Enhanced styling with Aphrodite')}
+            </Heading>
+            <Text>TODO</Text>
+        </Slide>
     </Deck>
 );
 
@@ -66,13 +98,19 @@ export const resources = {
     en: {
         translation: {
             "Styling (CSS-in-JS)": "Styling (CSS-in-JS)",
-            "Design beautiful applications in React": "Design beautiful applications in React"
+            "Design beautiful applications in React": "Design beautiful applications in React",
+            "Use CSS classes": "Use CSS classes",
+            "Apply inline styles": "Apply inline styles",
+            "Enhanced styling with Aphrodite": "Enhanced styling with Aphrodite"
         }
     },
     fr: {
         translation: {
             "Styling (CSS-in-JS)": "Styling (CSS-in-JS)",
-            "Design beautiful applications in React": "Des applications web stylisées avec React"
+            "Design beautiful applications in React": "Des applications web stylisées avec React",
+            "Use CSS classes": "Utiliser des classes CSS",
+            "Apply inline styles": "Appliquer un style inline",
+            "Enhanced styling with Aphrodite": "Styles avancés avec Aphrodite"
         }
     }
 };
