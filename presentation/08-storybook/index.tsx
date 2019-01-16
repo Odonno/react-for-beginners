@@ -24,7 +24,9 @@ import {
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
-    reactLogo: require('../../assets/react-logo.png')
+    reactLogo: require('../../assets/react-logo.png'),
+    storybookLogo: require('../../assets/storybook-logo.svg'),
+    storybookIntroduction: require('../../assets/storybook-introduction.gif')
 };
 
 const colors = {
@@ -57,6 +59,20 @@ const Presentation = ({ t }) => (
             <Text margin="40px 0 0" textColor="tertiary">
                 {t('A storybook of your components')}
             </Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Image src={images.storybookLogo} />
+            <BlockQuote style={{ marginTop: 60 }}>
+                <Quote textColor="tertiary" style={{ fontSize: 46, textAlign: 'center' }}>
+                    The UI Development Environment<br /><br />
+                    You'll ♥️ to use
+                </Quote>
+            </BlockQuote>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Image src={images.storybookIntroduction} />
         </Slide>
     </Deck>
 );
