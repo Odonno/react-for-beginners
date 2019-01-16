@@ -94,8 +94,39 @@ const Component = () => (
             <Heading size={6} textColor="secondary" caps>
                 {t('Apply inline styles')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const Component = () => (
+    <div 
+        style={{ 
+            color: '#123456', 
+            fontSize: 22 
+        }}
+    >
+        Content
+    </div>
+);`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
+
+<Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+    <Heading size={6} textColor="secondary" caps fit>
+        {t('Apply inline styles')} - variables
+    </Heading>
+    <LiveProvider style={{ margin: '40px 0' }} code={`const styles = {
+    root: {
+        color: '#123456', 
+        fontSize: 22
+    }
+};
+    
+const Component = () => (
+    <div style={styles.root}>
+        Content
+    </div>
+);`}>
+        <LiveEditor readOnly={true} />
+    </LiveProvider>
+</Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
