@@ -7,6 +7,7 @@ import { PresentationWithI18n as ReduxPresentation } from './03-redux';
 import { PresentationWithI18n as RoutingPresentation } from './04-routing';
 import { PresentationWithI18n as RxjsReactPresentation } from './05-rxjs-react';
 import { PresentationWithI18n as ReactAndWebApiPresentation } from './06-web-api';
+import { PresentationWithI18n as StylingPresentation } from './07-styling';
 
 const presentations = [
     {
@@ -42,7 +43,8 @@ const presentations = [
     {
         key: 'styling',
         name: 'Styling (CSS-in-JS)',
-        displayName: <div>Styling <br /> (CSS-in-JS)</div>
+        displayName: <div>Styling <br /> (CSS-in-JS)</div>,
+        component: StylingPresentation
     },
     {
         key: 'sharing-ui-libraries',
