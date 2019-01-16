@@ -73,7 +73,21 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps>
                 {t('Use CSS classes')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`.genericClass {
+    color: '#123456',
+    font-size: 22px
+}`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
+            <LiveProvider style={{ margin: '40px 0' }} code={`import './Component.css';
+            
+const Component = () => (
+    <div className="genericClass">
+        Content
+    </div>
+);`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
