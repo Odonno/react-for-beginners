@@ -108,11 +108,11 @@ const Component = () => (
             </LiveProvider>
         </Slide>
 
-<Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-    <Heading size={6} textColor="secondary" caps fit>
-        {t('Apply inline styles')} - variables
-    </Heading>
-    <LiveProvider style={{ margin: '40px 0' }} code={`const styles = {
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Apply inline styles')} - variables
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const styles = {
     root: {
         color: '#123456', 
         fontSize: 22
@@ -124,15 +124,127 @@ const Component = () => (
         Content
     </div>
 );`}>
-        <LiveEditor readOnly={true} />
-    </LiveProvider>
-</Slide>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
+        </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-            <Heading size={6} textColor="secondary" caps>
-                {t('Enhanced styling with Aphrodite')}
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Enhanced styling with Aphrodite')} - CSS-in-JS
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const styles = StyleSheet.create({
+    red: {
+        backgroundColor: 'red'
+    },
+    blue: {
+        backgroundColor: 'blue'
+    }
+});
+    
+const Component = () => (
+    <div>
+        <span className={css(styles.red)}>
+            This is red.
+        </span>
+        <span className={css(styles.red, styles.blue)}>
+            This is blue.
+        </span>
+    </div>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 16 }} />
+            </LiveProvider>
+            <LiveProvider style={{ margin: '40px 0' }} code={`<div>
+    <span class="red_1fdv34">
+        This is red.
+    </span>
+    <span class="blue_bd12gs">
+        This is blue.
+    </span>
+</div>`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Enhanced styling with Aphrodite')} - pseudo states
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const styles = StyleSheet.create({
+    hover: {
+        ':hover': {
+            backgroundColor: 'red'
+        }
+    }
+});
+    
+const Component = () => (
+    <div>
+        <span className={css(styles.hover)}>
+            Turns red on hover.
+        </span>
+    </div>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Enhanced styling with Aphrodite')} - media-queries
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const styles = StyleSheet.create({
+    small: {
+        '@media (max-width: 600px)': {
+            backgroundColor: 'red'
+        }
+    }
+});
+    
+const Component = () => (
+    <div>
+        <span className={css(styles.small)}>
+            Turns red when the browser is < 600px width.
+        </span>
+    </div>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Enhanced styling with Aphrodite')} - keyframe animations
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const translateKeyframes = {
+    '0%': {
+        transform: 'translateX(0)'
+    },
+    '50%': {
+        transform: 'translateX(100px)'
+    },
+    '100%': {
+        transform: 'translateX(0)'
+    }
+};
+
+const opacityKeyframes = {
+    'from': {
+        opacity: 0
+    },
+    'to': {
+        opacity: 1
+    }
+};
+
+const styles = StyleSheet.create({
+    customAnimation: {
+        animationName: [translateKeyframes, opacityKeyframes],
+        animationDuration: '3s, 1200ms',
+        animationIterationCount: 'infinite'
+    }
+});`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
         </Slide>
     </Deck>
 );
