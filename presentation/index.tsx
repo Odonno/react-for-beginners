@@ -9,6 +9,7 @@ import { PresentationWithI18n as RxjsReactPresentation } from './05-rxjs-react';
 import { PresentationWithI18n as ReactAndWebApiPresentation } from './06-web-api';
 import { PresentationWithI18n as StylingPresentation } from './07-styling';
 import { PresentationWithI18n as StorybookPresentation } from './08-storybook';
+import { PresentationWithI18n as AdvancedAndPreviewFeaturesPresentation } from './09-advanced-preview-features';
 
 const presentations = [
     {
@@ -54,7 +55,8 @@ const presentations = [
     },
     {
         key: 'advanced-and-preview-features',
-        name: 'Advanced & preview features'
+        name: 'Advanced & preview features',
+        component: AdvancedAndPreviewFeaturesPresentation
     }
 ];
 
