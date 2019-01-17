@@ -24,7 +24,10 @@ import {
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
-    reactLogo: require('../../assets/react-logo.png')
+    reactLogo: require('../../assets/react-logo.png'),
+    reactLifecycle2: require('../../assets/react-lifecycle-2.png'),
+    reactDevTools: require('../../assets/react-devtools.gif'),
+    reduxDevTools: require('../../assets/redux-devtools.png')
 };
 
 const colors = {
@@ -62,10 +65,11 @@ const Presentation = ({ t }) => (
             <List>
                 <ListItem margin="20px 0" textSize="40px">{t('Advanced component lifecycle')}</ListItem>
                 <ListItem margin="20px 0" textSize="40px">{t('React DevTools')}</ListItem>
+                <ListItem margin="20px 0" textSize="40px">{t('Redux DevTools')}</ListItem>
                 <ListItem margin="20px 0" textSize="40px">{t('Server Side Rendering')}</ListItem>
                 <ListItem margin="20px 0" textSize="40px">{t('Context Provider')}</ListItem>
                 <ListItem margin="20px 0" textSize="40px">{t('Lazy loading of components')}</ListItem>
-                <ListItem margin="20px 0" textSize="40px">{t('React hooks')}</ListItem>                
+                <ListItem margin="20px 0" textSize="40px">{t('React hooks')}</ListItem>
             </List>
         </Slide>
 
@@ -73,14 +77,42 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps>
                 {t('Advanced component lifecycle')}
             </Heading>
-            <Text>TODO</Text>
+            <Image margin="40px auto" src={images.reactLifecycle2} height={450} />
+            <Text textSize="20px" textColor="tertiary">
+                <span>* Source</span>
+                <span> - </span>
+                <a
+                    href="https://medium.com/@kartikagarwal01/react-component-lifecycle-old-vs-new-32757aee5850"
+                    target="_blank"
+                    style={{ color: 'white' }}
+                >
+                    https://medium.com/@kartikagarwal01/react-component-lifecycle-old-vs-new-32757aee5850
+                </a>
+            </Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps fit>
+                {t('Advanced component lifecycle')} - shouldComponentUpdate
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`shouldComponentUpdate(nextProps, nextState)
+    -> boolean`}>
+                <LiveEditor readOnly={true} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
                 {t('React DevTools')}
             </Heading>
-            <Text>TODO</Text>
+            <Image margin="40px auto" src={images.reactDevTools} />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('Redux DevTools')}
+            </Heading>
+            <Image margin="40px auto" src={images.reduxDevTools} />
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
