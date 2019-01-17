@@ -172,7 +172,31 @@ const Presentation = ({ t }) => (
             <Heading size={6} textColor="secondary" caps>
                 {t('Context Provider')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const ThemeContext = React.createContext({
+    theme: themes.dark,
+    toggleTheme: () => {}
+});
+
+const App = () => (
+    <ThemeContext.Provider value={themes.dark}>
+        <ThemedButton />
+    </ThemeContext.Provider>
+);
+
+const ThemedButton = () => (
+    <ThemeContext.Consumer>
+        {({ theme, toggleTheme }) => (
+            <button
+                onClick={toggleTheme}
+                style={{ backgroundColor: theme.background }}
+            >
+                Toggle Theme
+            </button>
+        )}
+    </ThemeContext.Consumer>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
