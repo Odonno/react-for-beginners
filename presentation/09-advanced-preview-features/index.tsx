@@ -221,9 +221,50 @@ const MyComponent = () => (
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
-                {t('React hooks')}
+                {t('React hooks')} - useState
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+                Click me
+            </button>
+        </div>
+    );
+};`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('React hooks')} - useEffect
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const FriendStatus = ({ friend }) => {
+    const [isOnline, setIsOnline] = useState(null);
+
+    const handleStatusChange = (status) => {
+        setIsOnline(status.isOnline);
+    };
+
+    useEffect(() => {
+        subscribe(friend.id, handleStatusChange);
+
+        return () => {
+            unsubscribe(friend.id, handleStatusChange);
+        };
+    });
+
+    if (isOnline === null) {
+        return 'Loading...';
+    }
+    return isOnline ? 'Online' : 'Offline';
+};`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
     </Deck>
 );
