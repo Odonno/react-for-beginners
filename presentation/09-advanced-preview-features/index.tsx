@@ -117,9 +117,55 @@ const Presentation = ({ t }) => (
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
             <Heading size={6} textColor="secondary" caps>
-                {t('Server Side Rendering')}
+                {t('Server Side Rendering')} - STEP 1
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const render = (initialState) => {
+    const store = configureStore(initialState);
+    const content = renderToString(
+        <Provider store={store}>
+            <App />
+        </Provider>
+    );
+    const preloadedState = store.getState();
+    return { content, preloadedState };
+};`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+            <Heading size={6} textColor="secondary" caps>
+                {t('Server Side Rendering')} - STEP 2
+            </Heading>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const template = (title, initialState = {}, content = "") => {
+    const scripts = content ?
+        \`<script>
+            window.__STATE__ = \${JSON.stringify(initialState)}
+        </script>
+        <script src="assets/client.js"></script>\`
+        :
+        \`<script src="assets/bundle.js"></script>\`;
+
+    return \`<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <title>\${title}</title>
+            <link href="assets/style.css" rel="stylesheet">
+        </head>
+        <body>
+            <div class="content">
+                <div id="app" class="wrap-inner">
+                    \${content}
+                </div>
+            </div>
+            \${scripts}
+        </body>
+        </html>
+    \`;
+}`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 18 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
