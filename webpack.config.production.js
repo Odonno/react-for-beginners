@@ -1,4 +1,5 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 /* eslint-disable */
 
 var path = require("path");
@@ -8,10 +9,14 @@ module.exports = {
   mode: "production",
   entry: ["@babel/polyfill", "./index"],
 
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
+  },
+
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "/dist/"
+    publicPath: "/"
   },
 
   plugins: [
@@ -19,7 +24,11 @@ module.exports = {
       "process.env": {
         NODE_ENV: JSON.stringify("production")
       }
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: './index.production.html',
+      to: './index.html'
+    }])
   ],
 
   module: {
@@ -83,6 +92,11 @@ module.exports = {
             }
           }
         ]
+      }, 
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
   },
