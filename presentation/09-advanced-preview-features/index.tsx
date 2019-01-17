@@ -203,7 +203,20 @@ const ThemedButton = () => (
             <Heading size={6} textColor="secondary" caps>
                 {t('Lazy loading of components')}
             </Heading>
-            <Text>TODO</Text>
+            <LiveProvider style={{ margin: '40px 0' }} code={`const OtherComponent =
+    React.lazy(() => import('./OtherComponent'));
+
+cont LoadingComponent = () => <div>Loading...</div>;
+
+const MyComponent = () => (
+    <div>
+        <Suspense fallback={LoadingComponent}>
+            <OtherComponent />
+        </Suspense>
+    </div>
+);`}>
+                <LiveEditor readOnly={true} style={{ fontSize: 26 }} />
+            </LiveProvider>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
