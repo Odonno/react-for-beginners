@@ -6,15 +6,15 @@ import i18n from "i18next";
 import * as LanguageDetector from 'i18next-browser-languagedetector';
 import { reactI18nextModule } from "react-i18next";
 
-import { resources as resources01 } from './presentation/01-beginning';
-import { resources as resources02 } from './presentation/02-virtual-dom';
-import { resources as resources03 } from './presentation/03-redux';
-import { resources as resources04 } from './presentation/04-routing';
-import { resources as resources05 } from './presentation/05-rxjs-react';
-import { resources as resources06 } from './presentation/06-web-api';
-import { resources as resources07 } from './presentation/07-styling';
-import { resources as resources08 } from './presentation/08-storybook';
-import { resources as resources09 } from './presentation/09-advanced-preview-features';
+import resources01 from './presentation/01-beginning/resources';
+import resources02 from './presentation/02-virtual-dom/resources';
+import resources03 from './presentation/03-redux/resources';
+import resources04 from './presentation/04-routing/resources';
+import resources05 from './presentation/05-rxjs-react/resources';
+import resources06 from './presentation/06-web-api/resources';
+import resources07 from './presentation/07-styling/resources';
+import resources08 from './presentation/08-storybook/resources';
+import resources09 from './presentation/09-advanced-preview-features/resources';
 
 import { Presentations } from './presentation';
 

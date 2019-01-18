@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import { PresentationWithI18n as BeginningPresentation } from './01-beginning';
-import { PresentationWithI18n as VirtualDomPresentation } from './02-virtual-dom';
-import { PresentationWithI18n as ReduxPresentation } from './03-redux';
-import { PresentationWithI18n as RoutingPresentation } from './04-routing';
-import { PresentationWithI18n as RxjsReactPresentation } from './05-rxjs-react';
-import { PresentationWithI18n as ReactAndWebApiPresentation } from './06-web-api';
-import { PresentationWithI18n as StylingPresentation } from './07-styling';
-import { PresentationWithI18n as StorybookPresentation } from './08-storybook';
-import { PresentationWithI18n as AdvancedAndPreviewFeaturesPresentation } from './09-advanced-preview-features';
+import BeginningPresentation from './01-beginning';
+import VirtualDomPresentation from './02-virtual-dom';
+import ReduxPresentation from './03-redux';
+import RoutingPresentation from './04-routing';
+import RxjsReactPresentation from './05-rxjs-react';
+import ReactAndWebApiPresentation from './06-web-api';
+import StylingPresentation from './07-styling';
+import StorybookPresentation from './08-storybook';
+import AdvancedAndPreviewFeaturesPresentation from './09-advanced-preview-features';
 
 const presentations = [
     {
