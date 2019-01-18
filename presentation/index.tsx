@@ -1,62 +1,71 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import BeginningPresentation from './01-beginning';
-import VirtualDomPresentation from './02-virtual-dom';
-import ReduxPresentation from './03-redux';
-import RoutingPresentation from './04-routing';
-import RxjsReactPresentation from './05-rxjs-react';
-import ReactAndWebApiPresentation from './06-web-api';
-import StylingPresentation from './07-styling';
-import StorybookPresentation from './08-storybook';
-import AdvancedAndPreviewFeaturesPresentation from './09-advanced-preview-features';
+const BeginningPresentation = React.lazy(() => import('./01-beginning'));
+const VirtualDomPresentation = React.lazy(() => import('./02-virtual-dom'));
+const ReduxPresentation = React.lazy(() => import('./03-redux'));
+const RoutingPresentation = React.lazy(() => import('./04-routing'));
+const RxjsReactPresentation = React.lazy(() => import('./05-rxjs-react'));
+const ReactAndWebApiPresentation = React.lazy(() => import('./06-web-api'));
+const StylingPresentation = React.lazy(() => import('./07-styling'));
+const StorybookPresentation = React.lazy(() => import('./08-storybook'));
+const AdvancedAndPreviewFeaturesPresentation = React.lazy(() => import('./09-advanced-preview-features'));
 
 const presentations = [
     {
         key: 'introduction',
         name: 'Introduction',
-        component: BeginningPresentation
+        component: BeginningPresentation,
+        isAvailable: true
     },
     {
         key: 'virtual-dom',
         name: 'Virtual DOM',
-        component: VirtualDomPresentation
+        component: VirtualDomPresentation,
+        isAvailable: true
     },
     {
         key: 'state-management-with-redux',
         name: 'State management with Redux',
-        component: ReduxPresentation
+        component: ReduxPresentation,
+        isAvailable: true
     },
     {
         key: 'routing',
         name: 'Routing',
-        component: RoutingPresentation
+        component: RoutingPresentation,
+        isAvailable: true
     },
     {
         key: 'rxjs-react',
         name: 'rxjs + react',
-        component: RxjsReactPresentation
+        component: RxjsReactPresentation,
+        isAvailable: true
     },
     {
         key: 'react-and-web-api',
         name: 'React & web API',
-        component: ReactAndWebApiPresentation
+        component: ReactAndWebApiPresentation,
+        isAvailable: true
     },
     {
         key: 'styling',
         name: 'Styling (CSS-in-JS)',
         displayName: <div>Styling <br /> (CSS-in-JS)</div>,
-        component: StylingPresentation
+        component: StylingPresentation,
+        isAvailable: true
     },
     {
         key: 'sharing-ui-components',
         name: 'Sharing UI components (Storybook)',
-        component: StorybookPresentation
+        component: StorybookPresentation,
+        isAvailable: true
     },
     {
         key: 'advanced-and-preview-features',
         name: 'Advanced & preview features',
-        component: AdvancedAndPreviewFeaturesPresentation
+        component: AdvancedAndPreviewFeaturesPresentation,
+        isAvailable: true
     }
 ];
 
@@ -79,7 +88,6 @@ const PresentationSelector = () => (
             }}
         >
             {presentations.map(p => {
-                const isAvailable = !!p.component;
                 return (
                     <Link
                         to={'/' + p.key}
@@ -87,7 +95,7 @@ const PresentationSelector = () => (
                         style={{
                             backgroundColor: 'white',
                             padding: '40px',
-                            color: isAvailable ? '#61DAFB' : '#CECECE',
+                            color: p.isAvailable ? '#61DAFB' : '#CECECE',
                             fontWeight: 'bold',
                             fontSize: 40,
                             textAlign: 'center',
@@ -110,12 +118,18 @@ const PresentationSelector = () => (
 
 export const Presentations = () => (
     <Router>
-        <div>
-            <Route path="/" exact component={PresentationSelector} />
+        <React.Suspense fallback={<div>loading...</div>}>
+            <Switch>
+                <Route path="/" exact component={PresentationSelector} />
 
-            {presentations.map(p => 
-                <Route key={p.key} path={'/' + p.key} component={p.component} />
-            )}
-        </div>
+                {presentations.map(p =>
+                    <Route
+                        key={p.key}
+                        path={'/' + p.key}
+                        component={p.component}
+                    />
+                )}
+            </Switch>
+        </React.Suspense>
     </Router>
 );
